@@ -36,7 +36,7 @@ public class MyApplication extends Application {
     public static boolean showHelpTip = true;
     SharedPreferencesHelper sharedPreferencesHelper;
     //是否同意隐私协议
-    public static boolean allowPrivacyPolicy = false;
+    public static boolean allowPrivacyPolicy = true;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
@@ -61,21 +61,8 @@ public class MyApplication extends Application {
             // 设置权限申请拦截器（全局设置）
             XXPermissions.setInterceptor(new PermissionInterceptor());
 
-            //友盟统计
-            sharedPreferencesHelper = new SharedPreferencesHelper(this, "umeng");
-            //设置LOG开关，默认为false
-            //UMConfigure.setLogEnabled(true);
-            //友盟预初始化
-            UMConfigure.preInit(getApplicationContext(), "60254fc7425ec25f10f4293e", "Umeng");
 
-            //判断是否同意隐私协议，uminit为1时为已经同意，直接初始化umsdk
-            if (sharedPreferencesHelper.getSharedPreference("uminit", "").equals("1")) {
-                allowPrivacyPolicy = true;
-                //友盟正式初始化
-                UmInitConfig umInitConfig = new UmInitConfig();
-                umInitConfig.UMinit(getApplicationContext());
-            }
-
+            
             //是否同意隐私协议
             if (!MyApplication.allowPrivacyPolicy) return;
 
