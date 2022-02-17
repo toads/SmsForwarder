@@ -13,7 +13,7 @@ public class UmInitConfig {
     public void UMinit(Context context) {
 
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
-        UMConfigure.init(context, "60254fc7425ec25f10f4293e", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        UMConfigure.init(context, "", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
 
         //集成umeng-crash-vx.x.x.aar，则需要关闭原有统计SDK异常捕获功能
         MobclickAgent.setCatchUncaughtExceptions(false);
