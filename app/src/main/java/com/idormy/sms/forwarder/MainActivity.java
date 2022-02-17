@@ -526,15 +526,17 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         @SuppressLint("InflateParams") View inflate = LayoutInflater.from(context).inflate(R.layout.diaolog_privacy_policy, null);
         TextView succsebtn = inflate.findViewById(R.id.succsebtn);
         TextView canclebtn = inflate.findViewById(R.id.caclebtn);
-
+        SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "umeng");
+        sharedPreferencesHelper.put("uminit", "1");
+        dialog.dismiss();
         succsebtn.setOnClickListener(v -> {
             /* uminit为1时代表已经同意隐私协议，sp记录当前状态*/
             SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "umeng");
             sharedPreferencesHelper.put("uminit", "1");
-            UMConfigure.submitPolicyGrantResult(getApplicationContext(), true);
+//             UMConfigure.submitPolicyGrantResult(getApplicationContext(), true);
             /* 友盟sdk正式初始化*/
-            UmInitConfig umInitConfig = new UmInitConfig();
-            umInitConfig.UMinit(getApplicationContext());
+//             UmInitConfig umInitConfig = new UmInitConfig();
+//             umInitConfig.UMinit(getApplicationContext());
             //关闭弹窗
             dialog.dismiss();
 
@@ -551,9 +553,9 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         canclebtn.setOnClickListener(v -> {
             dialog.dismiss();
 
-            UMConfigure.submitPolicyGrantResult(getApplicationContext(), false);
+//             UMConfigure.submitPolicyGrantResult(getApplicationContext(), false);
             //不同意隐私协议，退出app
-            android.os.Process.killProcess(android.os.Process.myPid());
+//             android.os.Process.killProcess(android.os.Process.myPid());
             finish();
         });
 
@@ -568,6 +570,6 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         dialogWindow.setAttributes(dialogParams);
 
         dialog.setCancelable(false);
-        dialog.show();
+//         dialog.show();
     }
 }
