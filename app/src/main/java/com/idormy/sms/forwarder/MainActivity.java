@@ -136,10 +136,7 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         Log.d(TAG, "onStart");
 
         //是否同意隐私协议
-        if (!MyApplication.allowPrivacyPolicy) {
-            dialog(this);
-            return;
-        }
+        
 
         //检查权限是否获取
         PackageManager pm = getPackageManager();
@@ -521,62 +518,4 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
     }
 
     /*** 隐私协议授权弹窗*/
-    public void dialog(Context context) {
-        Dialog dialog = new Dialog(context, R.style.dialog);
-        @SuppressLint("InflateParams") View inflate = LayoutInflater.from(context).inflate(R.layout.diaolog_privacy_policy, null);
-        TextView succsebtn = inflate.findViewById(R.id.succsebtn);
-        TextView canclebtn = inflate.findViewById(R.id.caclebtn);
-        /* uminit为1时代表已经同意隐私协议，sp记录当前状态*/
-        SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "umeng");
-        sharedPreferencesHelper.put("uminit", "1");
-        
-        
-        succsebtn.setOnClickListener(v -> {
-            sharedPreferencesHelper.put("uminit", "1");
-//             UMConfigure.submitPolicyGrantResult(getApplicationContext(), true);
-            /* 友盟sdk正式初始化*/
-//             UmInitConfig umInitConfig = new UmInitConfig();
-//             umInitConfig.UMinit(getApplicationContext());
-            //关闭弹窗
-            dialog.dismiss();
-
-            //跳转到HomeActivity
-            final Intent intent = context.getPackageManager().getLaunchIntentForPackage(getPackageName());
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-
-            //杀掉以前进程
-            android.os.Process.killProcess(android.os.Process.myPid());
-            finish();
-        });
-
-        canclebtn.setOnClickListener(v -> {
-            sharedPreferencesHelper.put("uminit", "1");
-            
-            dialog.dismiss();
-            
-            //跳转到HomeActivity
-            final Intent intent = context.getPackageManager().getLaunchIntentForPackage(getPackageName());
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-
-            //杀掉以前进程
-            android.os.Process.killProcess(android.os.Process.myPid());
-
-            finish();
-        });
-
-        dialog.setContentView(inflate);
-        Window dialogWindow = dialog.getWindow();
-        dialogWindow.setGravity(Gravity.CENTER);
-
-        //自适应大小
-        WindowManager.LayoutParams dialogParams = dialogWindow.getAttributes();
-        dialogParams.width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.85);
-        //dialogParams.height = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.7);
-        dialogWindow.setAttributes(dialogParams);
-
-        dialog.setCancelable(false);
-//         dialog.show();
-    }
-}
+｝
