@@ -526,12 +526,12 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         @SuppressLint("InflateParams") View inflate = LayoutInflater.from(context).inflate(R.layout.diaolog_privacy_policy, null);
         TextView succsebtn = inflate.findViewById(R.id.succsebtn);
         TextView canclebtn = inflate.findViewById(R.id.caclebtn);
+        /* uminit为1时代表已经同意隐私协议，sp记录当前状态*/
         SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "umeng");
         sharedPreferencesHelper.put("uminit", "1");
-        dialog.dismiss();
+        
+        
         succsebtn.setOnClickListener(v -> {
-            /* uminit为1时代表已经同意隐私协议，sp记录当前状态*/
-            SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this, "umeng");
             sharedPreferencesHelper.put("uminit", "1");
 //             UMConfigure.submitPolicyGrantResult(getApplicationContext(), true);
             /* 友盟sdk正式初始化*/
@@ -551,11 +551,18 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
         });
 
         canclebtn.setOnClickListener(v -> {
+            sharedPreferencesHelper.put("uminit", "1");
+            
             dialog.dismiss();
+            
+            //跳转到HomeActivity
+            final Intent intent = context.getPackageManager().getLaunchIntentForPackage(getPackageName());
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
 
-//             UMConfigure.submitPolicyGrantResult(getApplicationContext(), false);
-            //不同意隐私协议，退出app
-//             android.os.Process.killProcess(android.os.Process.myPid());
+            //杀掉以前进程
+            android.os.Process.killProcess(android.os.Process.myPid());
+
             finish();
         });
 
