@@ -518,4 +518,4 @@ public class MainActivity extends AppCompatActivity implements RefreshListView.I
     }
 
     /*** 隐私协议授权弹窗*/
-｝
+}
