@@ -4,19 +4,15 @@
 
 [English Version](README_en.md)
 
-[![GitHub release](https://img.shields.io/github/release/pppscn/SmsForwarder.svg)](https://github.com/pppscn/SmsForwarder/releases) [![GitHub stars](https://img.shields.io/github/stars/pppscn/SmsForwarder)](https://github.com/pppscn/SmsForwarder/stargazers) [![GitHub forks](https://img.shields.io/github/forks/pppscn/SmsForwarder)](https://github.com/pppscn/SmsForwarder/network/members) [![GitHub issues](https://img.shields.io/github/issues/pppscn/SmsForwarder)](https://github.com/pppscn/SmsForwarder/issues) [![GitHub license](https://img.shields.io/github/license/pppscn/SmsForwarder)](https://github.com/pppscn/SmsForwarder/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/toads/SmsForwarder.svg)](https://github.com/toads/SmsForwarder/releases) [![GitHub stars](https://img.shields.io/github/stars/toads/SmsForwarder)](https://github.com/toads/SmsForwarder/stargazers) [![GitHub forks](https://img.shields.io/github/forks/toads/SmsForwarder)](https://github.com/toads/SmsForwarder/network/members) [![GitHub issues](https://img.shields.io/github/issues/toads/SmsForwarder)](https://github.com/toads/SmsForwarder/issues) [![GitHub license](https://img.shields.io/github/license/toads/SmsForwarder)](https://github.com/toads/SmsForwarder/blob/main/LICENSE)
 
 短信转发器——监控Android手机短信、来电、APP通知，并根据指定规则转发到其他手机：钉钉机器人、企业微信群机器人、飞书机器人、企业微信应用消息、邮箱、bark、webhook、Telegram机器人、Server酱、PushPlus、手机短信等。
 
 ### 下载地址
 
 > ⚠ 首发地址：https://github.com/pppscn/SmsForwarder/releases
+> ⚠ 洁净版：https://github.com/toads/SmsForwarder/releases
 
-> ⚠ 国内镜像：https://gitee.com/pp/SmsForwarder/releases
-
-> ⚠ 网盘下载：https://wws.lanzoui.com/b025yl86h 访问密码：`pppscn`
-
-> ⚠ 酷安应用市场：https://www.coolapk.com/apk/com.idormy.sms.forwarder
 
 ### 使用文档
 
@@ -134,7 +130,7 @@
 
 ## 如果觉得本工具对您有所帮助，右上角给个小星星鼓励一下！
 
-[![starcharts stargazers over time](https://starchart.cc/pppscn/SmsForwarder.svg)](https://github.com/pppscn/SmsForwarder)
+
 
 --------
 
