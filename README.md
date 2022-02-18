@@ -1,6 +1,6 @@
 ![SmsForwarder](pic/SmsForwarder.png)
 
-# SmsForwarder-短信转发器
+# SmsForwarder-短信转发器 去掉友盟推送版
 
 [English Version](README_en.md)
 
